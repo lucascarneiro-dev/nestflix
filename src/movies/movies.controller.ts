@@ -19,25 +19,25 @@ import { Movie, Prisma } from '.prisma/client';
 export class MoviesController {
   constructor(private readonly moviesService: MoviesService) {}
 
-  @Post('/new-movie')
+  @Post('/new')
   @UsePipes(ValidationPipe)
   async create(@Body() createMovie: CreateMovieDto): Promise<Movie> {
     return this.moviesService.create(createMovie);
   }
 
-  @Get('/movies')
+  @Get('/')
   @UsePipes(ValidationPipe)
   async findAll(): Promise<Movie[]> {
     return this.moviesService.findAll();
   }
 
-  @Get('/movies/:id')
+  @Get('/:id')
   @UsePipes(ValidationPipe)
   async findOne(@Param('id',ParseIntPipe) id: number): Promise<Movie> {
     return this.moviesService.findOne(id);
   }
 
-  @Patch('/movies/:id')
+  @Patch('/:id')
   @UsePipes(ValidationPipe)
   async update(
     @Param('id', ParseIntPipe) id: number,
@@ -46,7 +46,7 @@ export class MoviesController {
     return this.moviesService.update(id, updateMovieDto);
   }
 
-  @Delete('/movies/:id')
+  @Delete('/:id')
   @UsePipes(ValidationPipe)
   async remove(@Param('id',ParseIntPipe) id: number) {
     return this.moviesService.remove(id);

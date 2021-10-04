@@ -15,29 +15,29 @@ import { CreateParticipantDto } from './dto/create-participant.dto';
 import { UpdateParticipantDto } from './dto/update-participant.dto';
 import { Staff } from '.prisma/client';
 
-@Controller('staff')
+@Controller('participants')
 export class ParticipantsController {
   constructor(private readonly participantsService: ParticipantsService) {}
 
-  @Post('/new-participant')
+  @Post('/new')
   @UsePipes(ValidationPipe)
   async create(@Body() createStaffDto: CreateParticipantDto) {
     return this.participantsService.create(createStaffDto);
   }
 
-  @Get('/participants')
+  @Get('/')
   @UsePipes(ValidationPipe)
   async findAll(): Promise<Staff[]> {
     return this.participantsService.findAll();
   }
 
-  @Get('/participants/:id')
+  @Get('/:id')
   @UsePipes(ValidationPipe)
   async findOne(@Param('id',ParseIntPipe) id: number): Promise<Staff> {
     return this.participantsService.findOne(id);
   }
 
-  @Patch('/participants/:id')
+  @Patch('/:id')
   @UsePipes(ValidationPipe)
   async update(
     @Param('id', ParseIntPipe) id: number, 
@@ -46,7 +46,7 @@ export class ParticipantsController {
     return this.participantsService.update(id, updateParticipantDto);
   }
 
-  @Delete('/participants/:id')
+  @Delete('/:id')
   @UsePipes(ValidationPipe)
   async remove(@Param('id', ParseIntPipe) id: number) {
     return this.participantsService.remove(id);

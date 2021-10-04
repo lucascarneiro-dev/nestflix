@@ -19,25 +19,25 @@ import { Genre, Prisma } from '.prisma/client';
 export class GenreController {
   constructor(private readonly genreService: GenreService) {}
 
-  @Post('/new-genre')
+  @Post('/new')
   @UsePipes(ValidationPipe)
   create(@Body() createGenreDto: CreateGenreDto): Promise<Genre> {
     return this.genreService.create(createGenreDto);
   }
 
-  @Get('/genre')
+  @Get('/')
   @UsePipes(ValidationPipe)
   async findAll(): Promise<Genre[]> {
     return this.genreService.findAll();
   }
 
-  @Get('/genre/:id')
+  @Get('/:id')
   @UsePipes(ValidationPipe)
   async findOne(@Param('id', ParseIntPipe) id: number): Promise<Genre> {
     return this.genreService.findOne(id);
   }
 
-  @Patch('/staff/:id')
+  @Patch('/:id')
   @UsePipes(ValidationPipe)
   async update(
     @Param('id', ParseIntPipe) id: number,
@@ -46,7 +46,7 @@ export class GenreController {
     return this.genreService.update(id, updateGenreDto);
   }
 
-  @Delete('/staff/:id')
+  @Delete('/:id')
   @UsePipes(ValidationPipe)
   async remove(@Param('id', ParseIntPipe) id: number) {
     return this.genreService.remove(id);

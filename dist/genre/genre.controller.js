@@ -37,7 +37,7 @@ let GenreController = class GenreController {
     }
 };
 __decorate([
-    (0, common_1.Post)('/new-genre'),
+    (0, common_1.Post)('/new'),
     (0, common_1.UsePipes)(common_1.ValidationPipe),
     __param(0, (0, common_1.Body)()),
     __metadata("design:type", Function),
@@ -45,14 +45,14 @@ __decorate([
     __metadata("design:returntype", Promise)
 ], GenreController.prototype, "create", null);
 __decorate([
-    (0, common_1.Get)('/genre'),
+    (0, common_1.Get)('/'),
     (0, common_1.UsePipes)(common_1.ValidationPipe),
     __metadata("design:type", Function),
     __metadata("design:paramtypes", []),
     __metadata("design:returntype", Promise)
 ], GenreController.prototype, "findAll", null);
 __decorate([
-    (0, common_1.Get)('/genre/:id'),
+    (0, common_1.Get)('/:id'),
     (0, common_1.UsePipes)(common_1.ValidationPipe),
     __param(0, (0, common_1.Param)('id', common_1.ParseIntPipe)),
     __metadata("design:type", Function),
@@ -60,7 +60,7 @@ __decorate([
     __metadata("design:returntype", Promise)
 ], GenreController.prototype, "findOne", null);
 __decorate([
-    (0, common_1.Patch)('/staff/:id'),
+    (0, common_1.Patch)('/:id'),
     (0, common_1.UsePipes)(common_1.ValidationPipe),
     __param(0, (0, common_1.Param)('id', common_1.ParseIntPipe)),
     __param(1, (0, common_1.Body)()),
@@ -69,7 +69,7 @@ __decorate([
     __metadata("design:returntype", Promise)
 ], GenreController.prototype, "update", null);
 __decorate([
-    (0, common_1.Delete)('/staff/:id'),
+    (0, common_1.Delete)('/:id'),
     (0, common_1.UsePipes)(common_1.ValidationPipe),
     __param(0, (0, common_1.Param)('id', common_1.ParseIntPipe)),
     __metadata("design:type", Function),

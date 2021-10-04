@@ -37,7 +37,7 @@ let ParticipantsController = class ParticipantsController {
     }
 };
 __decorate([
-    (0, common_1.Post)('/new-participant'),
+    (0, common_1.Post)('/new'),
     (0, common_1.UsePipes)(common_1.ValidationPipe),
     __param(0, (0, common_1.Body)()),
     __metadata("design:type", Function),
@@ -45,14 +45,14 @@ __decorate([
     __metadata("design:returntype", Promise)
 ], ParticipantsController.prototype, "create", null);
 __decorate([
-    (0, common_1.Get)('/participants'),
+    (0, common_1.Get)('/'),
     (0, common_1.UsePipes)(common_1.ValidationPipe),
     __metadata("design:type", Function),
     __metadata("design:paramtypes", []),
     __metadata("design:returntype", Promise)
 ], ParticipantsController.prototype, "findAll", null);
 __decorate([
-    (0, common_1.Get)('/participants/:id'),
+    (0, common_1.Get)('/:id'),
     (0, common_1.UsePipes)(common_1.ValidationPipe),
     __param(0, (0, common_1.Param)('id', common_1.ParseIntPipe)),
     __metadata("design:type", Function),
@@ -60,7 +60,7 @@ __decorate([
     __metadata("design:returntype", Promise)
 ], ParticipantsController.prototype, "findOne", null);
 __decorate([
-    (0, common_1.Patch)('/participants/:id'),
+    (0, common_1.Patch)('/:id'),
     (0, common_1.UsePipes)(common_1.ValidationPipe),
     __param(0, (0, common_1.Param)('id', common_1.ParseIntPipe)),
     __param(1, (0, common_1.Body)()),
@@ -69,7 +69,7 @@ __decorate([
     __metadata("design:returntype", Promise)
 ], ParticipantsController.prototype, "update", null);
 __decorate([
-    (0, common_1.Delete)('/participants/:id'),
+    (0, common_1.Delete)('/:id'),
     (0, common_1.UsePipes)(common_1.ValidationPipe),
     __param(0, (0, common_1.Param)('id', common_1.ParseIntPipe)),
     __metadata("design:type", Function),
@@ -77,7 +77,7 @@ __decorate([
     __metadata("design:returntype", Promise)
 ], ParticipantsController.prototype, "remove", null);
 ParticipantsController = __decorate([
-    (0, common_1.Controller)('staff'),
+    (0, common_1.Controller)('participants'),
     __metadata("design:paramtypes", [participants_service_1.ParticipantsService])
 ], ParticipantsController);
 exports.ParticipantsController = ParticipantsController;
