@@ -17,7 +17,7 @@ model Movie {
   release_date String
   duration Int
   genre Genre[]
-  staff Staff[]
+  participants Participants[]
 }
 
 model Genre {
@@ -27,12 +27,12 @@ model Genre {
   movieId Int?
 }
 
-model Staff {
+model Participants {
   id Int @id @default(autoincrement())
   name String
   img String?
   birth String
-  staff String
+  participants String
   movie Movie? @relation(fields: [movieId], references: [id])
   movieId Int?
 }
