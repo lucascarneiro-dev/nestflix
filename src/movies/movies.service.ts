@@ -13,7 +13,23 @@ export class MoviesService {
   }
 
   async findAll(): Promise<Movie[]> {
-    return this.prisma.movie.findMany();
+    return this.prisma.movie.findMany({
+      include: {
+        staff: {
+          select: {
+            name: true,
+            img: true,
+            birth: true,
+            staff: true,
+          },
+        },
+        genre: {
+          select: {
+            name: true,
+          },
+        },
+      },
+    });
   }
 
   async findOne(id: number): Promise<Movie> {
@@ -21,15 +37,30 @@ export class MoviesService {
       where: {
         id: id,
       },
+      include: {
+        staff: {
+          select: {
+            name: true,
+            img: true,
+            birth: true,
+            staff: true,
+          },
+        },
+        genre: {
+          select: {
+            name: true,
+          },
+        },
+      },
     });
   }
 
   async update(id: number, data: Prisma.MovieCreateInput): Promise<Movie> {
     return await this.prisma.movie.update({
-    where: {
+      where: {
         id: id,
       },
-      data:data,
+      data: data,
     });
   }
 
